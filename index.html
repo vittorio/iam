@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Victor's portfolio</title>
+  <style>
+    h1 {
+      font-size: 40px;
+      text-align: center;
+      margin-top: 300px;
+      font-family: sans-serif;
+      font-weight: normal;
+    }
+
+    .skill {
+      min-width: 320px;
+      display: inline-block;
+      border: 1px solid black;
+      background: grey;
+      color: white;
+      padding: 5px;
+      cursor: text;
+    }
+    .perk {
+      min-width: 220px;
+      display: inline-block;
+      padding: 5px;
+      color: grey;
+    }
+  </style>
+</head>
+<body>
+<h1>
+  I'm an <span class="perk">professional</span> <span class="skill" contenteditable="true">frontend</span> developer
+</h1>
+
+<script>
+  var skills = ['frontend', 'chrome extension', 'javascript', 'coffeescript', 'angular', 'web'];
+  var perks = ['professional', 'skilled', 'experienced'];
+  var activeSkillIndex = 0;
+  var activePerkIndex = 0;
+
+  var intervalId = setInterval(function () {
+    ++activeSkillIndex;
+    if (activeSkillIndex >= skills.length) {
+      activeSkillIndex = 0;
+    }
+    document.querySelector('.skill').innerText = skills[activeSkillIndex];
+  }, 4000);
+
+  setTimeout(function () {
+    setInterval(function () {
+      ++activePerkIndex;
+      if (activePerkIndex >= perks.length) {
+        activePerkIndex = 0;
+      }
+      document.querySelector('.perk').innerText = perks[activePerkIndex];
+    }, 4000);
+  }, 2000)
+
+//  document.querySelector('.skill').addEventListener('mouseenter', function () {
+//    window.clearInterval(intervalId);
+//  })
+</script>
+</body>
+</html>
